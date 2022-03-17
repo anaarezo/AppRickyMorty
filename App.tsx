@@ -18,7 +18,6 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-
 import {
   Colors,
   DebugInstructions,
@@ -26,6 +25,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import {NavigationStack} from './src/routes';
 
 const Section: React.FC<{
   title: string;
@@ -64,6 +64,7 @@ const App = () => {
 
   return (
     <SafeAreaView style={backgroundStyle}>
+      <NavigationStack />
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
