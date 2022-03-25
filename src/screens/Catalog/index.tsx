@@ -2,13 +2,13 @@ import React from 'react';
 import {Text, View} from 'react-native';
 // import * as S from './styles';
 
-const Login = () => {
+const Catalog = () => {
   return (
     <View>
-      <Text>Login</Text>
+      <Text>Catalog</Text>
       {/* <S.Button /> */}
     </View>
   );
 };
 
-export default Login;
+export default Catalog;

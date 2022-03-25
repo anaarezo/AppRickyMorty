@@ -1,5 +1,5 @@
-import HomeScreen from '../screens/Home/index';
+import Home from '../screens/Home';
+import Login from '../screens/Login';
+import Catalog from '../screens/Catalog';
 
-export default {
-  HomeScreen,
-};
+export {Home, Login, Catalog};

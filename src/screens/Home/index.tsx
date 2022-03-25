@@ -1,12 +1,14 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {Text, View} from 'react-native';
+// import * as S from './styles';
 
-const HomeScreen = () => {
+const Home = () => {
   return (
     <View>
-      <Text>Teste</Text>
+      <Text>Home Page</Text>
+      {/* <S.Button /> */}
     </View>
   );
 };
 
-export default HomeScreen;
+export default Home;
