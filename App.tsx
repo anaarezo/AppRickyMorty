@@ -64,7 +64,7 @@ const App = () => {
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <NavigationStack />
+      {/* <NavigationStack /> */}
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"

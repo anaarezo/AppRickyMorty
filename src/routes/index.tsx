@@ -1,1 +1,1 @@
-export {default as NavigationStack} from '../routes/main/index';
+// export {default as NavigationStack} from '../routes/main/index';
