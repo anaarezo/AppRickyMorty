@@ -1,19 +1,23 @@
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 
-export const Container = styled.view`
+export const Container = styled.View`
   flex: 1;
-  align-items: center;
-  align-content: center;
-  background-color: 'red';
+  justify-content: 'center';
+  margin-horizontal: 16px;
 `;
 
-export const Button = styled.a`
-  display: inline-block;
-  border-radius: 3px;
-  padding: 0.5rem 0;
-  margin: 0.5rem 1rem;
-  width: 11rem;
-  background: transparent;
-  color: white;
-  border: 2px solid white;
+export const Title = styled.Text`
+  text-align: center;
+  margin-vertical: 8px;
+`;
+
+export const FixToText = styled.Text`
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const Separator = styled.View`
+  margin-vertical: 8px;
+  border-bottom-color: #737373;
+  border-bottom-width: 1px;
 `;

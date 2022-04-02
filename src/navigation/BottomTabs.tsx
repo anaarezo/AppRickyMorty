@@ -14,7 +14,7 @@ export default function HomeNavigationTabs() {
         headerShown: false,
         unmountOnBlur: true,
         tabBarShowLabel: false,
-        tabBarStyle: {height: 50},
+        tabBarStyle: {height: 80},
       }}>
       <Tab.Screen
         name="HomeTab"
@@ -25,12 +25,13 @@ export default function HomeNavigationTabs() {
               <Icon
                 name="home"
                 size={20}
-                color={focused ? '#0a9396' : '#d62828'}
+                color={focused ? '#0a9396' : '#666'}
               />
               <Text
                 allowFontScaling={false}
+                // eslint-disable-next-line react-native/no-inline-styles
                 style={{
-                  color: focused ? '#0a9396' : '#d62828',
+                  color: focused ? '#0a9396' : '#666',
                   width: 50,
                   fontSize: 11,
                   textAlign: 'center',
@@ -51,12 +52,13 @@ export default function HomeNavigationTabs() {
               <Icon
                 name="stream"
                 size={20}
-                color={focused ? '#0a9396' : '#d62828'}
+                color={focused ? '#0a9396' : '#666'}
               />
               <Text
                 allowFontScaling={false}
+                // eslint-disable-next-line react-native/no-inline-styles
                 style={{
-                  color: focused ? '#0a9396' : '#d62828',
+                  color: focused ? '#0a9396' : '#666',
                   width: 50,
                   fontSize: 11,
                   textAlign: 'center',

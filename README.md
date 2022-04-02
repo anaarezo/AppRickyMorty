@@ -9,3 +9,7 @@ https://stackoverflow.com/questions/56916798/react-rctbridgedelegate-h-file-not-
 https://reactnavigation.org/docs/getting-started/
 https://styled-components.com/docs/basics#installation
 https://rickandmortyapi.com/documentation/#dart
+
+watchman shutdown-server
+
+@types/styled-components-react-native
