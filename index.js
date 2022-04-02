@@ -2,14 +2,6 @@
  * @format
  */
 
-//  import {
-//     ApolloClient,
-//     InMemoryCache,
-//     ApolloProvider,
-//     useQuery,
-//     gql
-//   } from "@apollo/client";
-
 import {AppRegistry} from 'react-native';
 import App from './src/App';
 import {name as appName} from './app.json';
