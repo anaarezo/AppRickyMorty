@@ -21,3 +21,12 @@ export const Separator = styled.View`
   border-bottom-color: #737373;
   border-bottom-width: 1px;
 `;
+
+export const Button = styled.TouchableOpacity`
+  margin-vertical: 40px;
+  width: 120px;
+  height: 40px;
+  padding: 12px;
+  border-radius: 10px;
+  background-color: red;
+`;
