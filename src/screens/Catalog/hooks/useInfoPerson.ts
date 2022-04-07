@@ -1,6 +1,6 @@
 import {useQuery} from '@apollo/client';
 
-import INFO_PERSON from '../graphql/index';
+import INFO_PERSON from '../graphql/index.graphql';
 
 const useInfoPerson = () => {
   const {loading, error, data} = useQuery(INFO_PERSON);

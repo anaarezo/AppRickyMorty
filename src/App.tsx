@@ -1,13 +1,13 @@
 import React from 'react';
 
-import {ApolloProvider} from '@apollo/react-hooks';
+import {ApolloProvider} from '@apollo/client';
 import Navigation from './navigation';
 
-import api from './services';
+import apolloClient from './services/apollo';
 
 const App = () => {
   return (
-    <ApolloProvider client={api}>
+    <ApolloProvider client={apolloClient}>
       <Navigation />
     </ApolloProvider>
   );
