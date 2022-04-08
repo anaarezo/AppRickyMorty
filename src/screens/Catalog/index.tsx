@@ -1,5 +1,11 @@
 import React, {useState} from 'react';
-import {FlatList, SafeAreaView, Text, TouchableOpacity} from 'react-native';
+import {
+  FlatList,
+  SafeAreaView,
+  Text,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
 
 import * as S from './styles';
 import {useInfoPerson} from './hooks';
@@ -8,7 +14,7 @@ const Catalog = () => {
   const {characters} = useInfoPerson();
   console.log('data', characters);
 
-  const socorro = characters?.results;
+  const charactersResponse = characters?.results;
   // if (loading) {
   //   return <p>Loading...</p>;
   // }
@@ -17,7 +23,7 @@ const Catalog = () => {
   //   return <p>an error occurred...</p>;
   // }
 
-  const Item = ({item, onPress, backgroundColor, textColor}) => (
+  const Item = ({item, onPress}) => (
     <TouchableOpacity onPress={onPress}>
       <Text>{item.name}</Text>
     </TouchableOpacity>
@@ -26,29 +32,32 @@ const Catalog = () => {
   const [selectedId, setSelectedId] = useState(null);
 
   const renderItem = ({item}) => {
-    const backgroundColor = item.name === selectedId ? '#6e3b6e' : '#f9c2ff';
-    const color = item.species === selectedId ? 'white' : 'black';
+    // const backgroundColor = item.name === selectedId ? '#6e3b6e' : '#f9c2ff';
+    // const color = item.species === selectedId ? 'white' : 'black';
 
+    console.log('wtf', item.image);
     return (
-      <Item
-        item={item}
-        onPress={() => setSelectedId(item.id)}
-        backgroundColor={{backgroundColor}}
-        textColor={{color}}
-      />
+      <>
+        <Image source={{uri: item?.image}} style={{width: 150, height: 150}} />
+        <Item
+          item={item}
+          onPress={() => setSelectedId(item.id)}
+          // backgroundColor={{backgroundColor}}
+          // textColor={{color}}
+        />
+      </>
     );
   };
 
   return (
     <SafeAreaView>
-      <S.Parent>
-        <FlatList
-          data={socorro}
-          renderItem={renderItem}
-          // keyExtractor={item => item.id}
-          extraData={selectedId}
-        />
-      </S.Parent>
+      <FlatList
+        data={charactersResponse}
+        renderItem={renderItem}
+        numColumns={2}
+        // keyExtractor={item => item.id}
+        extraData={selectedId}
+      />
     </SafeAreaView>
   );
 };
