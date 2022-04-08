@@ -1,12 +1,5 @@
 import React, {useState} from 'react';
-import {
-  FlatList,
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
+import {FlatList, SafeAreaView, Text, TouchableOpacity} from 'react-native';
 
 import * as S from './styles';
 import {useInfoPerson} from './hooks';
@@ -14,6 +7,8 @@ import {useInfoPerson} from './hooks';
 const Catalog = () => {
   const {characters} = useInfoPerson();
   console.log('data', characters);
+
+  const socorro = characters?.results;
   // if (loading) {
   //   return <p>Loading...</p>;
   // }
@@ -21,21 +16,6 @@ const Catalog = () => {
   // if (error) {
   //   return <p>an error occurred...</p>;
   // }
-
-  const DATA = [
-    {
-      id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-      title: 'First Item',
-    },
-    {
-      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-      title: 'Second Item',
-    },
-    {
-      id: '58694a0f-3da1-471f-bd96-145571e29d72',
-      title: 'Third Item',
-    },
-  ];
 
   const Item = ({item, onPress, backgroundColor, textColor}) => (
     <TouchableOpacity onPress={onPress}>
@@ -59,16 +39,16 @@ const Catalog = () => {
     );
   };
 
-  // return <S.Parent></S.Parent>;
-
   return (
     <SafeAreaView>
-      <FlatList
-        data={characters}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-        extraData={selectedId}
-      />
+      <S.Parent>
+        <FlatList
+          data={socorro}
+          renderItem={renderItem}
+          // keyExtractor={item => item.id}
+          extraData={selectedId}
+        />
+      </S.Parent>
     </SafeAreaView>
   );
 };

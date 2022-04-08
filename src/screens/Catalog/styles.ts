@@ -4,7 +4,14 @@ export const Parent = styled.View`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  border: 1px red solid;
 `;
+
+// export const Parent = styled.View`
+//   flex: 1;
+//   justify-content: 'center';
+//   margin-horizontal: 16px;
+// `;
 
 export const Card = styled.View`
   margin: 5%;
