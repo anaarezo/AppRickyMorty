@@ -1,11 +1,5 @@
 import React, {useState} from 'react';
-import {
-  FlatList,
-  SafeAreaView,
-  Text,
-  TouchableOpacity,
-  Image,
-} from 'react-native';
+import {FlatList, SafeAreaView, Text, TouchableOpacity} from 'react-native';
 
 import * as S from './styles';
 import {useInfoPerson} from './hooks';
@@ -25,27 +19,23 @@ const Catalog = () => {
 
   const Item = ({item, onPress}) => (
     <TouchableOpacity onPress={onPress}>
-      <Text>{item.name}</Text>
+      <S.Title>{item.name}</S.Title>
+      <S.Subtitle>{item.gender}</S.Subtitle>
+      <S.Subtitle>{item.species}</S.Subtitle>
     </TouchableOpacity>
   );
 
   const [selectedId, setSelectedId] = useState(null);
 
   const renderItem = ({item}) => {
-    // const backgroundColor = item.name === selectedId ? '#6e3b6e' : '#f9c2ff';
-    // const color = item.species === selectedId ? 'white' : 'black';
-
-    console.log('wtf', item.image);
+    console.log('wtf', item);
     return (
-      <>
-        <Image source={{uri: item?.image}} style={{width: 150, height: 150}} />
-        <Item
-          item={item}
-          onPress={() => setSelectedId(item.id)}
-          // backgroundColor={{backgroundColor}}
-          // textColor={{color}}
-        />
-      </>
+      <S.Card>
+        <S.PicBorder>
+          <S.Picture source={{uri: item?.image}} />
+        </S.PicBorder>
+        <Item item={item} onPress={() => setSelectedId(item.id)} />
+      </S.Card>
     );
   };
 
@@ -54,8 +44,8 @@ const Catalog = () => {
       <FlatList
         data={charactersResponse}
         renderItem={renderItem}
-        numColumns={2}
-        // keyExtractor={item => item.id}
+        // numColumns={2}
+        keyExtractor={item => item.name}
         extraData={selectedId}
       />
     </SafeAreaView>
