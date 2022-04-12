@@ -1,40 +1,48 @@
 import React, {useState} from 'react';
-import {FlatList, SafeAreaView, Text, TouchableOpacity} from 'react-native';
+import {FlatList, SafeAreaView, TouchableOpacity} from 'react-native';
 
 import * as S from './styles';
 import {useInfoPerson} from './hooks';
 
 const Catalog = () => {
-  const {characters} = useInfoPerson();
+  const {loading, error, characters} = useInfoPerson();
   console.log('data', characters);
 
   const charactersResponse = characters?.results;
-  // if (loading) {
-  //   return <p>Loading...</p>;
-  // }
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
-  // if (error) {
-  //   return <p>an error occurred...</p>;
-  // }
+  if (error) {
+    return <p>an error occurred...</p>;
+  }
 
   const Item = ({item, onPress}) => (
-    <TouchableOpacity onPress={onPress}>
-      <S.Title>{item.name}</S.Title>
-      <S.Subtitle>{item.gender}</S.Subtitle>
-      <S.Subtitle>{item.species}</S.Subtitle>
-    </TouchableOpacity>
+    <S.Content>
+      <TouchableOpacity onPress={onPress}>
+        <S.Title ellipsizeMode="tail" numberOfLines={1}>
+          {item.name}
+        </S.Title>
+        <S.Subtitle>{item.gender}</S.Subtitle>
+        <S.Subtitle>{item.species}</S.Subtitle>
+      </TouchableOpacity>
+    </S.Content>
   );
 
   const [selectedId, setSelectedId] = useState(null);
 
   const renderItem = ({item}) => {
-    console.log('wtf', item);
     return (
       <S.Card>
         <S.PicBorder>
           <S.Picture source={{uri: item?.image}} />
         </S.PicBorder>
         <Item item={item} onPress={() => setSelectedId(item.id)} />
+        <S.ButtonMore
+        // onPress={onPressLearnMore}
+        >
+          <S.ButtonText>See more</S.ButtonText>
+        </S.ButtonMore>
       </S.Card>
     );
   };
@@ -44,7 +52,6 @@ const Catalog = () => {
       <FlatList
         data={charactersResponse}
         renderItem={renderItem}
-        // numColumns={2}
         keyExtractor={item => item.name}
         extraData={selectedId}
       />

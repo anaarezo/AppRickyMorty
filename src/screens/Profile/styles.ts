@@ -9,10 +9,6 @@ export const Card = styled.View`
   transition: 0.3s;
 `;
 
-export const Content = styled.View`
-  flex: 1;
-`;
-
 export const PicBorder = styled.View`
   margin: 0 16px 0 8px;
   border-radius: 100px;
@@ -34,7 +30,7 @@ export const Title = styled.Text`
   font-size: 16px;
   font-weight: bold;
   color: #666666;
-  max-width: 150px;
+  width: 100px;
 `;
 
 export const Subtitle = styled.Text`
@@ -45,7 +41,7 @@ export const Subtitle = styled.Text`
 
 export const ButtonMore = styled.TouchableOpacity`
   border-radius: 40px;
-  margin: 8px;
+  margin: 8px 0;
   padding: 0 16px;
   background-color: #50936b;
   justify-content: space-around;
