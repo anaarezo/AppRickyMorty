@@ -1,13 +1,11 @@
-import {useQuery} from '@apollo/client';
+import {useLazyQuery} from '@apollo/client';
 
-import INFO_PERSON from '../graphql/index.graphql';
+import INFO_PROFILE from '../graphql/index.graphql';
 
-const useInfoPerson = () => {
-  const {loading, error, data} = useQuery(INFO_PERSON);
+const useInfoProfile = () => {
+  const [getProfile, {loading, error, data}] = useLazyQuery(INFO_PROFILE);
 
-  console.log('RESPONSE', data);
-
-  return {loading, error, characters: data?.characters};
+  return {loading, error, data, getProfile};
 };
 
-export default useInfoPerson;
+export default useInfoProfile;

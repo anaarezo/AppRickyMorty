@@ -4,6 +4,7 @@ const INFO_PERSON = gql`
   query {
     characters {
       results {
+        id
         name
         species
         gender

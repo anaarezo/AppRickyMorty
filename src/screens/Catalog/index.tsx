@@ -1,20 +1,19 @@
-import React, {useState} from 'react';
-import {FlatList, SafeAreaView, TouchableOpacity} from 'react-native';
+import React from 'react';
+import {FlatList, SafeAreaView, TouchableOpacity, Text} from 'react-native';
 
-import * as S from './styles';
 import {useInfoPerson} from './hooks';
+import * as S from './styles';
 
-const Catalog = () => {
+const Catalog = ({navigation}: any) => {
   const {loading, error, characters} = useInfoPerson();
-  console.log('data', characters);
-
   const charactersResponse = characters?.results;
+
   if (loading) {
-    return <p>Loading...</p>;
+    return <Text>Loading...</Text>;
   }
 
   if (error) {
-    return <p>an error occurred...</p>;
+    return <Text>an error occurred...</Text>;
   }
 
   const Item = ({item, onPress}) => (
@@ -29,18 +28,22 @@ const Catalog = () => {
     </S.Content>
   );
 
-  const [selectedId, setSelectedId] = useState(null);
-
   const renderItem = ({item}) => {
     return (
       <S.Card>
         <S.PicBorder>
           <S.Picture source={{uri: item?.image}} />
         </S.PicBorder>
-        <Item item={item} onPress={() => setSelectedId(item.id)} />
+        <Item
+          item={item}
+          onPress={() => {
+            navigation.navigate('Profile', {info: item});
+          }}
+        />
         <S.ButtonMore
-        // onPress={onPressLearnMore}
-        >
+          onPress={() => {
+            navigation.navigate('Profile', {info: item});
+          }}>
           <S.ButtonText>See more</S.ButtonText>
         </S.ButtonMore>
       </S.Card>
@@ -53,7 +56,6 @@ const Catalog = () => {
         data={charactersResponse}
         renderItem={renderItem}
         keyExtractor={item => item.name}
-        extraData={selectedId}
       />
     </SafeAreaView>
   );

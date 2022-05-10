@@ -1,16 +1,29 @@
 import {gql} from '@apollo/client';
 
-const INFO_PERSON = gql`
-  query {
-    characters {
-      results {
+const INFO_PROFILE = gql`
+  query Character($id: ID!) {
+    character(id: $id) {
+      id
+      name
+      status
+      species
+      gender
+      origin {
         name
-        species
-        gender
-        image
+        type
+        dimension
+        created
       }
+      location {
+        name
+        type
+        dimension
+        created
+      }
+      image
+      created
     }
   }
 `;
 
-export default INFO_PERSON;
+export default INFO_PROFILE;

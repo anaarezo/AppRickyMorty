@@ -1,5 +1,4 @@
-import Home from '../screens/Home';
-import Login from '../screens/Login';
 import Catalog from '../screens/Catalog';
+import Profile from './Profile';
 
-export {Home, Login, Catalog};
+export {Catalog, Profile};

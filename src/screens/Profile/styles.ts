@@ -14,15 +14,15 @@ export const PicBorder = styled.View`
   border-radius: 100px;
   border-width: 3px;
   border-color: #50936b;
-  width: 70px;
-  height: 70px;
+  width: 200px;
+  height: 200px;
 `;
 
 export const Picture = styled.Image`
   border-radius: 100px;
   margin: 4px;
-  width: 56px;
-  height: 56px;
+  width: 200px;
+  height: 200px;
 `;
 
 export const Title = styled.Text`
